@@ -87,7 +87,8 @@ public class Exec
 
 			while(!game.gameOver())
 			{
-				long due=System.currentTimeMillis()+ _Game.DELAY;
+//				long due=System.currentTimeMillis()+ _Game.DELAY;
+				long due = _Game.DELAY;
 		        game.advanceGame(attackerController.update(game.copy(), due), defenderController.update(game.copy(), due));
 			}
 			
@@ -108,7 +109,7 @@ public class Exec
      */
 	public void runGame(AttackerController attackerController, DefenderController defenderController, boolean visual, int delay)
 	{
-//		Game.rng = new java.util.Random();
+//		Game.rng = new java.util._Random();
 		
 		game=new _Game_();
 		game.newGame();
@@ -123,7 +124,8 @@ public class Exec
 
 		while(!game.gameOver())
 		{
-			long due=System.currentTimeMillis()+ Game.DELAY;
+//			long due=System.currentTimeMillis()+ Game.DELAY;
+			long due = Game.DELAY;
 			game.advanceGame(attackerController.update(game.copy(), due), defenderController.update(game.copy(), due));
 
 	        try{Thread.sleep(delay);}catch(Exception e){}
@@ -346,7 +348,7 @@ public class Exec
 	        			wait();
 	                }
 
-	        		setPacDir(pacMan.update(game.copy(), System.currentTimeMillis() + Game.DELAY));
+	        		setPacDir(pacMan.update(game.copy(), /*System.currentTimeMillis() +*/ _Game.DELAY));
 	            } 
 	        	catch(InterruptedException e) 
 	        	{
@@ -394,7 +396,7 @@ public class Exec
 	        			wait();
 	                }
 
-	        		setGhostDirs(ghosts.update(game.copy(), System.currentTimeMillis()+ Game.DELAY));
+	        		setGhostDirs(ghosts.update(game.copy(), /*System.currentTimeMillis()+*/ _Game.DELAY));
 	            } 
 	        	catch(InterruptedException e) 
 	        	{
